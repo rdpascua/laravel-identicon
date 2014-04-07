@@ -22,7 +22,7 @@ And add this to your facades
     Identicon::getImageDataUri('baz');
 
     //You can also adjust the size of the identicon and color
-    Identicon::displayIamge('foo', 256, 'B4D455');
+    Identicon::displayImage('foo', 256, 'B4D455');
 
 ### Credits
 * https://github.com/yzalis/Identicon
