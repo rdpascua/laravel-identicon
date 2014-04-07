@@ -1,0 +1,20 @@
+{
+    "name": "rdpascua/laravel-identicon",
+    "description": "Identicon wrapper for Laravel",
+    "authors": [
+        {
+            "name": "Ricardo Pascua Jr",
+            "email": "rdpascua@outlook.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.1.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Rdpascua\\Identicon": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
