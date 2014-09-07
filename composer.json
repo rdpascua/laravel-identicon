@@ -1,6 +1,8 @@
 {
     "name": "rdpascua/laravel-identicon",
     "description": "Identicon wrapper for Laravel",
+    "keywords": ["laravel", "identicon"],
+    "license":  "MIT",
     "authors": [
         {
             "name": "Ricardo Pascua Jr",
@@ -9,7 +11,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": ">=4.1.*,<=4.2.*",
+        "illuminate/support": ">=4.1,<=4.2",
         "yzalis/identicon": "1.0.*@dev"
     },
     "autoload": {
