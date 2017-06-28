@@ -1,30 +1,49 @@
-# Identicon Wrapper for Laravel 4
+# Identicon Wrapper for Laravel
 
-Add this to your `composer.json` and update your composer.
+Generate awesome avatar placeholders using **identicon**.
 
-Add to your service provider in `app/config/app.php`
+### Installation
 
-    'Rdpascua\Identicon\IdenticonServiceProvider',
+    composer require rdpascua/laravel-identicon
+
+Add this to your service provider
+
+    Rdpascua\Identicon\IdenticonServiceProvider::class,
 
 And add this to your facades
 
-    'Identicon'  => 'Rdpascua\Identicon\Facade',
+    'aliases' => [
+        'Identicon' => Rdpascua\Identicon\Facades\Identicon::class,
+    ]
 
-### Usage
+# Usage
 
-    //Displays and generates an image
-    Identicon::displayImage('foo');
+### Identicon::getImageDataUri($string, $size = 64, $color = null)
 
-    //get the image data
-    Identicon::getImageData('bar');
+Returns a base64 image.
 
-    //base64 image
-    Identicon::getImageDataUri('baz');
+```html
+<!-- Base64 URI image -->
+<img src="{{ Identicon::getImageDataUri('baz') }}">
 
-    //You can also adjust the size of the identicon and color
-    Identicon::displayImage('foo', 256, 'B4D455');
+<!-- Explicitly specify the size and color -->
+<img src="{{ Identicon::getImageDataUri('foo', 256, 'B4D455') }}">
+```
+
+### Identicon::image($string, $size = 64, $color = null)
+
+Returns a base64 image wrapped in `<img>` tag.
+
+```html
+<!-- Show image -->
+{{ Identicon::image('baz') }}
+```
+
+### Identicon::getImageData($string, $size = 64, $color = null)
+### Identicon::displayImage($string, $size = 64, $color = null)
 
 ### Credits
+
 * https://github.com/yzalis/Identicon
 
 ### License

@@ -1,9 +1,12 @@
-<?php namespace Rdpascua\Identicon;
+<?php
 
+namespace Rdpascua\Identicon;
+
+use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
-class IdenticonServiceProvider extends ServiceProvider {
-
+class IdenticonServiceProvider extends ServiceProvider
+{
 	/**
 	 * Indicates if loading of the provider is deferred.
 	 *
@@ -12,24 +15,15 @@ class IdenticonServiceProvider extends ServiceProvider {
 	protected $defer = false;
 
     /**
-     * Boot the application
-     *
-     * @return [type] [description]
-     */
-    public function boot()
-    {
-        $this->package('rdpascua/laravel-identicon');
-    }
-
-    /**
      * Register to service provider
      *
      * @return [type] [description]
      */
     public function register()
     {
-        $this->app['identicon'] = $this->app->share(function($app)
-        {
+        $method = version_compare(Application::VERSION, '5.2', '>=') ? 'singleton' : 'bindShared';
+
+        $this->app->$method('identicon', function($app) {
             return new Identicon;
         });
     }
@@ -41,6 +35,6 @@ class IdenticonServiceProvider extends ServiceProvider {
      */
     public function provides()
     {
-        return array('identicon');
+        return ['identicon'];
     }
 }
